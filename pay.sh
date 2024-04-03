@@ -1,30 +1,15 @@
 #!/bin/bash
 
-# Function to calculate grade
-calculate_grade() {
+calculate_pay() {
 
-    echo "Enter marks obtained (out of 100):"
-    read marks
+    echo "Enter the number of hours worked:"
+    read hours_worked
+    echo "Enter the hourly rate:"
+    read hourly_rate
 
-    if [ "$marks" -lt 0 ] || [ "$marks" -gt 100 ]; then
-        echo "Invalid marks! Marks should be between 0 and 100."
-        return
-    fi
+    total_pay=$(echo "$hours_worked * $hourly_rate" | bc)
 
-    if [ "$marks" -ge 90 ]; then
-        grade="A"
-    elif [ "$marks" -ge 80 ]; then
-        grade="B"
-    elif [ "$marks" -ge 70 ]; then
-        grade="C"
-    elif [ "$marks" -ge 60 ]; then
-        grade="D"
-    else
-        grade="F"
-    fi
-
-    echo "Grade: $grade"
+    echo "Total pay: $total_pay"
 }
 
-# Call the function to calculate grade
-calculate_grade
+calculate_pay
