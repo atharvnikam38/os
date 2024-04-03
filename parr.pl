@@ -14,10 +14,17 @@ sub print_elements_in_range {
     print "\n";
 }
 
-my @array = (1, 5, 9, 11, 15, 20, 25, 30);
+print "Enter the start of the range: ";
+my $start = <STDIN>;
+chomp $start;
 
-# Define range
-my $start = 10;
-my $end = 25;
+print "Enter the end of the range: ";
+my $end = <STDIN>;
+chomp $end;
+
+print "Enter the array elements separated by space: ";
+my $input = <STDIN>;
+chomp $input;
+my @array = split(' ', $input);
 
 print_elements_in_range($start, $end, @array);
