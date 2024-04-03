@@ -1,12 +1,11 @@
 #!/bin/bash
 
-print_duplicate_lines() {
+if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <file>"
+        exit 1
+fi
 
-    echo "Enter the input:"
+file="$1"
 
-    input=$(cat)
+sed 's/^[[:space:]]*//' "$file" | sed '/^$/d' | sort | uniq -d
 
-    echo "$input" | sed '/^$/d' | sort | uniq -d
-}
-
-print_duplicate_lines
